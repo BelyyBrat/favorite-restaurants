@@ -29,3 +29,4 @@
 ### Functionalities
 
 - User can search for all of a cuisine's restaurants
+  - Search criteria: by name, type, vegetarian

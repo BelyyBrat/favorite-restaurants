@@ -1,0 +1,51 @@
+@{
+  Layout = "_Layout";
+}
+
+@using FavoriteRestaurants.Models;
+@model List<FavoriteRestaurants.Models.Restaurant>;
+
+<div class="jumbotron">
+  <h2>Restaurants found by Search</h2>
+</div>
+
+ 
+  @if(@Model.Count == 0)
+  {
+    <h4>No restaurants matching search found!</h4>
+  }
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>PriceLevel</th>
+      <th>Rating</th>
+      <th>Vegetarian</th>
+      <th>Cuisine</th>
+    </tr>
+  
+  @foreach (Restaurant restaurant in Model)
+  {
+    <tr>
+      <td>@Html.ActionLink($"{restaurant.Name} ","Details", new { id = restaurant.RestaurantId })</td>
+      <td>@Html.ActionLink($"{restaurant.PriceLevel} ","Details", new { id = restaurant.RestaurantId })</td>
+      <td>@Html.ActionLink($"{restaurant.Rating} ","Details", new { id = restaurant.RestaurantId })</td>
+      <td>@Html.ActionLink($"{restaurant.Vegetarian.ToString()} ","Details", new { id = restaurant.RestaurantId })</td>
+      <td>@Html.ActionLink($"{restaurant.Cuisine} ","Details", new { id = restaurant.RestaurantId })</td>      
+    </tr>
+  }
+</table>
+
+<div class="links3">
+  <div class="link">
+    <p>@Html.ActionLink("Search for another restaurant", "Search")</p>
+  </div>
+  <div class="link">
+    <p>@Html.ActionLink("Add new restaurant", "Create")</p>
+  </div>
+  <div class="link">
+    <p>@Html.ActionLink("List of Re", "Index")</p>
+  </div>
+</div>
+
+@Html.Partial("Footer")

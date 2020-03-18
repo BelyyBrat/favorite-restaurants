@@ -2,46 +2,49 @@
   Layout = "_Layout";
 }
 
+@using FavoriteRestaurants.Models;
 @model FavoriteRestaurants.Models.Restaurant
 
 <h2>Edit Restaurant</h2>
 
 <h4>Edit restaurant information for @Html.DisplayFor(model => model.Name):</h4>
 
-@using (Html.BeginForm())
-{
-  @Html.HiddenFor(model => model.RestaurantId)
+<div class="form">
+  @using (Html.BeginForm())
+  {
+    @Html.HiddenFor(model => model.RestaurantId)
 
-  @Html.LabelFor(model => model.Name)
-  @Html.EditorFor(model => model.Name)
-  <br>
-  <br>
-  @Html.LabelFor(model => model.Description)
-  @Html.EditorFor(model => model.Description)
-  <br>
-  <br>
-  @Html.LabelFor(model => model.PriceLevel, "Price Level")
-  @Html.EditorFor(model => model.PriceLevel)
-  <br>
-  <br>
-  @Html.LabelFor(model => model.Rating)
-  @Html.EditorFor(model => model.Rating)
-  <br>
-  <br>
-  @Html.LabelFor(model => model.Type)
-  @Html.EditorFor(model => model.Type)
-  <br>
-  <br>
-  @Html.LabelFor(model => model.Vegetarian)
-  @Html.EditorFor(model => model.Vegetarian)
-  <br>
-  <br>
-  @Html.LabelFor(model => model.Cuisine)
-  @Html.DropDownList("CuisineId")
-  <br>
-  <br>
-  <input type="submit" value="Save" class="btn btn-secondary"/>
-}
+    @Html.LabelFor(model => model.Name)
+    @Html.EditorFor(model => model.Name)
+    <br>
+    <br>
+    @Html.LabelFor(model => model.Description)
+    @Html.EditorFor(model => model.Description)
+    <br>
+    <br>
+    @Html.LabelFor(model => model.PriceLevel, "Price Level")
+    @Html.DropDownListFor(model => model.PriceLevel, new SelectList(Enum.GetValues(typeof(PriceLevel))), "Select Price Level")
+    <br>
+    <br>
+    @Html.LabelFor(model => model.Rating)
+    @Html.DropDownListFor(model => model.Rating, new SelectList(Enum.GetValues(typeof(Rating))), "Select Rating")
+    <br>
+    <br>
+    @Html.LabelFor(model => model.Type)
+    @Html.EditorFor(model => model.Type)
+    <br>
+    <br>
+    @Html.LabelFor(model => model.Vegetarian)
+    @Html.EditorFor(model => model.Vegetarian)
+    <br>
+    <br>
+    @Html.LabelFor(model => model.Cuisine)
+    @Html.DropDownList("CuisineId")
+    <br>
+    <br>
+    <input type="submit" value="Save" class="btn btn-secondary"/>
+  }
+</div>
 
 <p>@Html.ActionLink("Back to list", "Index")</p>
 @Html.Partial("Footer")

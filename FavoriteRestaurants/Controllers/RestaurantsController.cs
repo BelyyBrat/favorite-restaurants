@@ -71,5 +71,36 @@ namespace FavoriteRestaurants.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+    
+    public ActionResult Search()
+    {
+      return View();
+    }
+
+    [HttpPost]
+    public ActionResult SearchResults(Restaurant searchRestaurant)
+    {
+      string searchCriteria = searchRestaurant.Name.ToLower();
+      List<Restaurant> allModels = _db.Restaurants.ToList();
+      List<Restaurant> foundModels = new List <Restaurant>{};
+      
+      if (searchRestaurant.Description == "PriceLevel")
+      {
+        foundModels = allModels.FindAll(x => x.PriceLevel.ToLower() == searchCriteria);
+      }
+      else if (searchRestaurant.Description == "Rating")
+      {
+        foundModels = allModels.FindAll(x => x.Rating.ToLower() == searchCriteria);
+      }
+      else if (searchRestaurant.Description == "Type")
+      {
+        foundModels = allModels.FindAll(x => x.Type.ToLower() == searchCriteria);
+      }
+      else if (searchRestaurant.Description == "Vegetarian")
+      {
+        foundModels = allModels.FindAll(x => x.Vegetarian == true);
+      }     
+      return View(foundModels);  
+    }
   }
 }

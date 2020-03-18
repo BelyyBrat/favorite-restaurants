@@ -1,0 +1,46 @@
+@{
+  Layout = "_Layout";
+}
+
+@using FavoriteRestaurants.Models;
+@model FavoriteRestaurants.Models.Restaurant;
+
+<div class="jumbotron">
+  <h2>Search Restaurants</h2>
+</div>
+
+<div class="form">
+  @using (Html.BeginForm("SearchResults", "Restaurants", FormMethod.Post))
+  {
+    @Html.Label("Search Criteria")
+    @Html.TextBoxFor(model => model.Name)
+    <br>
+    @Html.RadioButtonFor(Model => Model.Description,"Name")
+    @Html.Label("By Name")
+    <br> 
+    @Html.RadioButtonFor(Model => Model.Description,"PriceLevel") 
+    @Html.Label("By Price Level")
+    <br>
+    @Html.RadioButtonFor(Model => Model.Description,"Rating") 
+    @Html.Label("By Rating")
+    <br>
+    @Html.RadioButtonFor(Model => Model.Description,"Type") 
+    @Html.Label("By Type")
+    <br>
+    @Html.CheckBoxFor(Model => Model.Description,"Vegetarian") 
+    @Html.Label("By Vegetarian")
+    <br>
+
+    <input type="submit" value="Find restaurant" class="btn btn-secondary"/>
+  }
+
+<div class="links">
+  <div class="link">
+    <p>@Html.ActionLink("Add new restaurant", "Create")</p>
+  </div>
+  <div class="link">
+    <p>@Html.ActionLink("List of Restaurants", "Index")</p>
+  </div>
+</div>   
+
+@Html.Partial("Footer")
