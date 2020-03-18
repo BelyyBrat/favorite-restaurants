@@ -3,8 +3,9 @@
 }
 
 @model FavoriteRestaurants.Models.Cuisine
-
-<h2>Are you sure you want to delete this?</h2>
+<div class="jumbotron">
+  <h2>Are you sure you want to delete this?</h2>
+</div>
 
 @Html.DisplayNameFor(model => model.Type): @Html.DisplayFor(model => model.Type)
 @using (Html.BeginForm())
@@ -12,3 +13,4 @@
     <input type="submit" value="Delete" />
 }
 @Html.ActionLink("Back to cuisines", "Index")
+@Html.Partial("Footer")

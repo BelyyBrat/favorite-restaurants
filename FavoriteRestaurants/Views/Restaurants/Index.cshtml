@@ -5,9 +5,12 @@
 @using FavoriteRestaurants.Models;
 @model List<FavoriteRestaurants.Models.Restaurant>;
 
-<h1>Restaurants</h1>
+<div class="jumbotron">
+  <h1>Restaurants</h1>
+</div>
 
-@if (@Model.Count == 0)
+<div class="content">
+  @if (@Model.Count == 0)
 {
   <h3>No restaurants have been added yet!</h3>
 } 
@@ -16,7 +19,12 @@
 {
   <li>@Html.ActionLink($"{restaurant.Description}", "Details", new { id = restaurant.RestaurantId }) | @restaurant.Cuisine.Type</li>
 }
+</div>
 
-<p>@Html.ActionLink("Add new Restaurant", "Create")</p>
 
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+<div class="links2">
+  <div class="link">@Html.ActionLink("Add new Restaurant", "Create")</div>
+  <div class="link">@Html.ActionLink("See all cuisines", "Index", "Cuisines")</div>
+</div>
+
+@Html.Partial("Footer")

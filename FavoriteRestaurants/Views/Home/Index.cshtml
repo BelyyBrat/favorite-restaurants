@@ -2,6 +2,17 @@
   Layout = "_Layout";
 }
 
-<h1>Our Favorite Restaurants</h1>
-<p>@Html.ActionLink("See all Cuisines", "Index", "Cuisines")</p>
-<p>@Html.ActionLink("See all Restaurants", "Index", "Restaurants")</p>
+<div class="jumbotron">
+<h1>Favorite Restaurants</h1>
+<hr>
+<p>We have hand-selected our favorites. Check them out!</p>
+</div>
+
+</div class="links2">
+  <div class="link">
+    <p>@Html.ActionLink("See all Cuisines", "Index", "Cuisines")</p>
+  </div>
+  <div class="link">
+    <p>@Html.ActionLink("See all Restaurants", "Index", "Restaurants")</p>
+  </div>
+</div>

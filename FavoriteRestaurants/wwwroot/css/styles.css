@@ -1,8 +1,58 @@
 body {
   margin: 0 auto;
   max-width: 1200px;
+  font-family: 'Raleway', sans-serif;
 }
 
-.form{
+h1, h2, h3, h4 {
+  font-family: 'Courgette', cursive;
+}
+
+li {
+  list-style-type: square;
+}
+
+.form {
   font-size: 16px;
+}
+
+.form label {
+  margin: 10px;
+}
+
+.links5 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.links4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.links3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.links2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+
+.homelink{
+  text-align: center;
+  font-size: 20px;
+}
+
+.link {
+  font-size: 20px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.content {
+  font-size: 30px;
+  margin-bottom: 20px;
 }

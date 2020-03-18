@@ -5,25 +5,32 @@
 @using FavoriteRestaurants.Models;
 @model FavoriteRestaurants.Models.Cuisine;
 
-<h2>Cuisine Details</h2>
+<div class="jumbotron">
+  <h2>Cuisine Details</h2>
+</div>
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Type): @Html.DisplayFor(model => model.Type)</h3>
 
-@Model.Restaurants.Count
+<div class="content">
+  <ul>
+    @if (@Model.Restaurants.Count == 0)
+    {
+      <p>no restaurants found</p>
+    }
 
-<ul>
-@if (@Model.Restaurants.Count == 0)
-{
-  <p>no restaurants found</p>
-}
+    @foreach (Restaurant restaurant in @Model.Restaurants)
+    {
+      <li>@Html.ActionLink($"{restaurant.Name}", "Details", "Restaurants", new { id = restaurant.RestaurantId })</li>
+    }
+  </ul>
+</div>
 
-@foreach (Restaurant restaurant in @Model.Restaurants)
-{
-  <li>@Html.ActionLink($"{restaurant.Name}", "Details", new { id = restaurant.RestaurantId })</li>
-}
-</ul>
 
-<p>@Html.ActionLink("Back to Cuisines", "Index")</p>
-<p>@Html.ActionLink("Edit Cuisine", "Edit", new { id = Model.CuisineId })</p>
-<p>@Html.ActionLink("Delete Cuisine", "Delete", new { id = Model.CuisineId })</p>
-<p>@Html.ActionLink("Add new Restaurant", "Create", "Restaurants")</p>
+
+<div class="links4">
+  <div class="link">@Html.ActionLink("Back to Cuisines", "Index")</div>
+  <div class="link">@Html.ActionLink("Edit Cuisine", "Edit", new { id = Model.CuisineId })</div>
+  <div class="link">@Html.ActionLink("Delete Cuisine", "Delete", new { id = Model.CuisineId })</div>
+  <div class="link">@Html.ActionLink("Add new Restaurant", "Create", "Restaurants")</div>
+</div>
+ @Html.Partial("Footer")

@@ -6,7 +6,7 @@
 
 * **Andriy Veremyeyev & Adela Darmansyah**
 * Favorite Restaurants Project
-* Struggles: buggy Git Mob
+* Struggles: buggy Git Mob, getting a list of objects within an object (solved by using .Where())
 
 ## Notes
 

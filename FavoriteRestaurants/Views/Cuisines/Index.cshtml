@@ -4,19 +4,23 @@
 
 @using FavoriteRestaurants.Models;
 @model List<FavoriteRestaurants.Models.Cuisine>;
-
+<div class="jumbotron">
 <h1>Cuisines</h1>
+</div>
 
-@if (@Model.Count == 0)
-{
-  <h3>No cuisines have been added yet!</h3>
-} 
+<div class="content">
+  @if (@Model.Count == 0)
+  {
+    <h3>No cuisines have been added yet!</h3>
+  } 
 
-@foreach (Cuisine cuisine in Model)
-{
-  <li>@Html.ActionLink($"{cuisine.Type}", "Details", new { id = cuisine.CuisineId })</li>
-}
+  @foreach (Cuisine cuisine in Model)
+  {
+    <li>@Html.ActionLink($"{cuisine.Type}", "Details", new { id = cuisine.CuisineId })</li>
+  }
+</div>
+
 
 <p>@Html.ActionLink("Add new Cuisine", "Create")</p>
 
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+@Html.Partial("Footer")

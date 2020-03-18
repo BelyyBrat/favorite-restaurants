@@ -4,9 +4,29 @@
 
 @model FavoriteRestaurants.Models.Restaurant
 
-<h2>Restaurant Details</h2>
+<div class="jumbotron">
+  <h2>@Html.DisplayFor(model => model.Name) Restaurant Details</h2>
+</div>
+
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</h3>
-<p>@Html.ActionLink("Back to list", "Index")</p>
-<p>@Html.ActionLink("Edit Restaurant", "Edit", new { id = Model.RestaurantId })</p>
-<p>@Html.ActionLink("Delete Restaurant", "Delete", new { id = Model.RestaurantId })</p>
+<h3>@Html.DisplayNameFor(model => model.PriceLevel): @Html.DisplayFor(model => model.PriceLevel)/3</h3>
+<h3>@Html.DisplayNameFor(model => model.Rating): @Html.DisplayFor(model => model.Rating)/5</h3>
+<h3>Restaurant Type: @Html.DisplayFor(model => model.Type)</h3>
+
+@if(Model.Vegetarian == true)
+{
+  <h3>@Html.DisplayNameFor(model => model.Vegetarian): Yes</h3>
+}
+else
+{
+  <h3>@Html.DisplayNameFor(model => model.Vegetarian): No</h3>
+}
+
+<div class="links3">
+  <div class="link">@Html.ActionLink("Back to list", "Index")</div>
+  <div class="link">@Html.ActionLink("Edit Restaurant", "Edit", new { id = Model.RestaurantId })</div>
+  <div class="link">@Html.ActionLink("Delete Restaurant", "Delete", new { id = Model.RestaurantId })</div>
+</div>
+@Html.Partial("Footer")
+

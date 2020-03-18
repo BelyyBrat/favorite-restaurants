@@ -3,8 +3,9 @@
 }
 
 @model FavoriteRestaurants.Models.Cuisine
-
-<h4>Add a new restaurant</h4>
+<div class="jumbotron">
+  <h2>Add a new restaurant</h2>
+</div>
 @using (Html.BeginForm())
 {
     @Html.LabelFor(model => model.Type)
@@ -12,3 +13,4 @@
     <input type="submit" value="Add new cuisine" />
 }
 <p>@Html.ActionLink("Show all cuisines", "Index")</p>
+@Html.Partial("Footer")

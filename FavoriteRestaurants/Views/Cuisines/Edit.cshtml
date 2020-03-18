@@ -4,8 +4,9 @@
 
 @model FavoriteRestaurants.Models.Cuisine
 
+<div class="jumbotron">
 <h2>Edit</h2>
-
+</div>
 <h4>Edit this cuisine: @Html.DisplayFor(model => model.Type)</h4>
 
 @using (Html.BeginForm())
@@ -18,3 +19,5 @@
     <input type="submit" value="Save" />
 }
 <p>@Html.ActionLink("Back to Cuisines", "Index")</p>
+
+@Html.Partial("Footer")
