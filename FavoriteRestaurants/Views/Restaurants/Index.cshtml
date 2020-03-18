@@ -17,7 +17,7 @@
 
 @foreach (Restaurant restaurant in Model)
 {
-  <li>@Html.ActionLink($"{restaurant.Description}", "Details", new { id = restaurant.RestaurantId }) | @restaurant.Cuisine.Type</li>
+  <li>@Html.ActionLink($"{restaurant.Name}", "Details", new { id = restaurant.RestaurantId }) | @restaurant.Cuisine.Type</li>
 }
 </div>
 

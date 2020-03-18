@@ -7,17 +7,20 @@
 <div class="jumbotron">
 <h2>Edit</h2>
 </div>
-<h4>Edit this cuisine: @Html.DisplayFor(model => model.Type)</h4>
-
+<h4>Edit @Html.DisplayFor(model => model.Type) cuisine:</h4>
+<hr>
+<div class="form">
 @using (Html.BeginForm())
 {
-    @Html.HiddenFor(model => model.CuisineId)
+  @Html.HiddenFor(model => model.CuisineId)
 
-    @Html.LabelFor(model => model.Type)
-    @Html.EditorFor(model => model.Type)
-
-    <input type="submit" value="Save" />
+  @Html.LabelFor(model => model.Type)
+  @Html.EditorFor(model => model.Type)
+  <br>
+  <input type="submit" value="Save" class="btn btn-secondary"/>
 }
+</div>
+<br>
 <p>@Html.ActionLink("Back to Cuisines", "Index")</p>
 
 @Html.Partial("Footer")

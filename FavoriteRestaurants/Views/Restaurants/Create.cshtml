@@ -21,23 +21,25 @@
     <br>
     <br>
     @Html.LabelFor(model => model.PriceLevel, "Price Level")
-    @Html.DropDownListFor(model => model.PriceLevel, new SelectList(Enum.GetValues(typCo-authored-by: Adela Darmansyah <adela.yohana@gmail.com>
-eof(PriceLevel))), "Select Price Level")
+    @Html.DropDownListFor(model => model.PriceLevel, new SelectList(Enum.GetValues(typeof(PriceLevel))), "Select Price Level")
     <br>
     <br> 
     @Html.LabelFor(model => model.Rating)
     @Html.DropDownListFor(model => model.Rating, new SelectList(Enum.GetValues(typeof(Rating))), "Select Rating")
     <br>
     <br> 
+    @* @Html.LabelFor(model => model.PriceLevel)
+    @Html.DropDownListFor(model => model.PriceLevel, 1)
+     *@
     @Html.LabelFor(model => model.Type)
     @Html.TextBoxFor(model => model.Type)
     <br>
     <br> 
     @Html.LabelFor(model => model.Vegetarian, "Vegetarian")
-    @Html.RadioButtonFor(model => model.Vegetarian, 1)
+    @Html.RadioButtonFor(model => model.Vegetarian, true)
     <br>
     @Html.LabelFor(model => model.Vegetarian, "Non-Vegetarian")
-    @Html.RadioButtonFor(model => model.Vegetarian, 0)
+    @Html.RadioButtonFor(model => model.Vegetarian, false)
     <br>
     <br>  
     @Html.LabelFor(model => model.Cuisine)

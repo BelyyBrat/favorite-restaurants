@@ -10,7 +10,7 @@
 {
     @Html.LabelFor(model => model.Type)
     @Html.TextBoxFor(model => model.Type)
-    <input type="submit" value="Add new cuisine" />
+    <input type="submit" value="Add new cuisine" class="btn btn-secondary"/>
 }
 <p>@Html.ActionLink("Show all cuisines", "Index")</p>
 @Html.Partial("Footer")
