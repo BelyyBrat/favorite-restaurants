@@ -13,4 +13,4 @@ namespace FavoriteRestaurants.Models
         public string Type { get; set; }
         public virtual ICollection<Restaurant> Restaurants { get; set; }
     }
-}`
+}

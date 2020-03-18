@@ -2,18 +2,36 @@
   Layout = "_Layout";
 }
 
+@using FavoriteRestaurants.Models
 @model FavoriteRestaurants.Models.Restaurant
 
 <h4>Add a new restaurant</h4>
 
 @using (Html.BeginForm())
 {
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name)
+    <br>
     @Html.LabelFor(model => model.Description)
     @Html.TextBoxFor(model => model.Description)
-
+    <br>
+    @Html.LabelFor(model => model.PriceLevel)
+    @Html.DropDownListFor(model => model.PriceLevel, new SelectList(Enum.GetValues(typeof(PriceLevel))), "Select Price Level")
+    <br>
+    @Html.LabelFor(model => model.Rating)
+    @Html.DropDownListFor(model => model.Rating, new SelectList(Enum.GetValues(typeof(Rating))), "Select Rating")
+    <br>
+    @Html.LabelFor(model => model.Type)
+    @Html.TextBoxFor(model => model.Type)
+    <br>
+    @Html.LabelFor(model => model.Vegetarian, "Vegetarian")
+    @Html.RadioButtonFor(model => model.Vegetarian, 1)
+    @Html.LabelFor(model => model.Vegetarian, "Non-Vegetarian")
+    @Html.RadioButtonFor(model => model.Vegetarian, 0)
+    <br>
     @Html.LabelFor(model => model.Cuisine)
     @Html.DropDownList("CuisineId")
-
+    <br>
     <input type="submit" value="Add new restaurant" class="btn btn-default" />
 }
 <p>@Html.ActionLink("Show all restaurants", "Index")</p>
