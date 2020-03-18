@@ -37,6 +37,8 @@ namespace FavoriteRestaurants.Controllers
     public ActionResult Details(int id)
     {
       Cuisine thisCuisine = _db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == id);
+      thisCuisine.Restaurants = _db.Restaurants.Where(x => x.CuisineId == id).ToList();
+      _db.SaveChanges();
       return View(thisCuisine);
     }
 

@@ -32,7 +32,6 @@ namespace FavoriteRestaurants.Controllers
     public ActionResult Create(Restaurant restaurant)
     {
       _db.Restaurants.Add(restaurant);
-      _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
