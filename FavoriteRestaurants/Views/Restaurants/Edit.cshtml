@@ -2,21 +2,21 @@
   Layout = "_Layout";
 }
 
-@model ToDoList.Models.Item
+@model FavoriteRestaurants.Models.Restaurant
 
 <h2>Edit</h2>
 
-<h4>Edit this task: @Html.DisplayFor(model => model.Description)</h4>
+<h4>Edit restaurant information: @Html.DisplayFor(model => model.Description)</h4>
 
 @using (Html.BeginForm())
 {
-    @Html.HiddenFor(model => model.ItemId)
+    @Html.HiddenFor(model => model.RestaurantId)
 
     @Html.LabelFor(model => model.Description)
     @Html.EditorFor(model => model.Description)
 
-    @Html.LabelFor(model => model.Category)
-    @Html.DropDownList("CategoryId")
+    @Html.LabelFor(model => model.Cuisine)
+    @Html.DropDownList("CuisineId")
 
     <input type="submit" value="Save" />
 }
