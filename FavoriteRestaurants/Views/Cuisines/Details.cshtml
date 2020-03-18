@@ -9,6 +9,8 @@
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Type): @Html.DisplayFor(model => model.Type)</h3>
 
+@Model.Restaurants.Count
+
 <ul>
 @if (@Model.Restaurants.Count == 0)
 {
@@ -17,7 +19,7 @@
 
 @foreach (Restaurant restaurant in @Model.Restaurants)
 {
-  <li>Description: @restaurant.Description</li>
+  <li>Description: @restaurant.Name</li>
 }
 </ul>
 
