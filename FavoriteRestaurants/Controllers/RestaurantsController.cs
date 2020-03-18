@@ -96,10 +96,10 @@ namespace FavoriteRestaurants.Controllers
       {
         foundModels = allModels.FindAll(x => x.Type.ToLower() == searchCriteria);
       }
-      else if (searchRestaurant.Description == "Vegetarian")
+      else if (searchRestaurant.Vegetarian == true)
       {
         foundModels = allModels.FindAll(x => x.Vegetarian == true);
-      }     
+      }   
       return View(foundModels);  
     }
   }
