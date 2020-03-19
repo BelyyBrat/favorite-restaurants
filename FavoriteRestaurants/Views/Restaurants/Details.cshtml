@@ -30,8 +30,9 @@ else
   <div class="link">@Html.ActionLink("Back to list", "Index")</div>
   <div class="link">@Html.ActionLink("Edit Restaurant", "Edit", new { id = Model.RestaurantId })</div>
   <div class="link">@Html.ActionLink("Delete Restaurant", "Delete", new { id = Model.RestaurantId })</div>
-  <div class="link">@Html.ActionLink("Write a Review", "Create", "Reviews")</div>
+  <div class="link">@Html.ActionLink("Write a Review", "Create", "Reviews",  new { id = Model.RestaurantId })</div>
 </div>
+
 
 
 @Html.Partial("Footer")

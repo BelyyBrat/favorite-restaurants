@@ -26,9 +26,11 @@ namespace FavoriteRestaurants.Controllers
       return View(model);
     }
 
-    public ActionResult Create()
+    public ActionResult Create(int restaurantId)
     {
-      ViewBag.RestaurantId = new SelectList(_db.Restaurants, "RestaurantId", "Name");
+      Restaurant thisRestaurant = _db.Restaurants.FirstOrDefault(restaurants => restaurants.RestaurantId == restaurantId);
+      ViewBag.RestaurantId = thisRestaurant.RestaurantId;
+      Console.WriteLine(restaurantId);
       return View();
     }
 

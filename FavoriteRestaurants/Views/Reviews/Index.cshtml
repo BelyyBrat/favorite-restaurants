@@ -20,16 +20,12 @@
   <ul>
     @foreach (Review review in Model)
     {
-      <li> Rev
-        @review.ReviewerName 
-        <br>
-        @review.ReviewRating
-        <br>
-        @review.Description, @review.ReviewDate
-        <br>
-        @review.Restaurant.Name
-        </li>
-       
+      <li> Review of @review.Restaurant.Name by @review.ReviewerName on @review.ReviewDate.Month/@review.ReviewDate.Day/@review.ReviewDate.Year
+        <ul>
+          <li>Rating: @review.ReviewRating</li>
+          <li>@review.Description,</li>
+        </ul>
+      </li>
     }
   </ul>
 </div>

@@ -13,7 +13,7 @@
 <div class="form">
   @using (Html.BeginForm())
   {
-    @Html.HiddenFor(Model => Model.RestaurantId)
+    @Html.HiddenFor(model => model.RestaurantId, new { Value=@Model.RestaurantId })
 
     @Html.LabelFor(model => model.ReviewerName)
     @Html.TextBoxFor(model => model.ReviewerName)
