@@ -14,12 +14,22 @@
   @if (@Model.Count == 0)
   {
     <h3>No reviews have been added yet!</h3>
+    <p>Model Count = @Model.Count </p>
   } 
 
   <ul>
     @foreach (Review review in Model)
     {
-      <li>@review.ReviewerName, @review.ReviewRating, @review.Description, @review.ReviewDate</li>
+      <li> Rev
+        @review.ReviewerName 
+        <br>
+        @review.ReviewRating
+        <br>
+        @review.Description, @review.ReviewDate
+        <br>
+        @review.Restaurant.Name
+        </li>
+       
     }
   </ul>
 </div>

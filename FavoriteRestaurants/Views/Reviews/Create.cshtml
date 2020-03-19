@@ -13,6 +13,8 @@
 <div class="form">
   @using (Html.BeginForm())
   {
+    @Html.HiddenFor(Model => Model.RestaurantId)
+
     @Html.LabelFor(model => model.ReviewerName)
     @Html.TextBoxFor(model => model.ReviewerName)
     <br>
@@ -29,6 +31,7 @@
     @Html.TextBoxFor(model => model.ReviewDate, new { @type = "date"})
     <br>
     <br> 
+
     <input type="submit" value="Add new review" class="btn btn-secondary" />
   }
 </div>
