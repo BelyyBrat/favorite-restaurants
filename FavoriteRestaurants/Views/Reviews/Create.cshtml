@@ -1,0 +1,51 @@
+@{
+  Layout = "_Layout";
+}
+
+@using FavoriteRestaurants.Models
+@model FavoriteRestaurants.Models.Review
+
+<div class="jumbotron">
+  <h4>Add a new review</h4>
+</div>
+
+<div class="form">
+  @using (Html.BeginForm())
+  {
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name)
+    <br>
+    <br>
+    @Html.LabelFor(model => model.Description)
+    @Html.TextAreaFor(model => model.Description)
+    <br>
+    <br>
+    @Html.LabelFor(model => model.PriceLevel, "Price Level")
+    @Html.DropDownListFor(model => model.PriceLevel, new SelectList(Enum.GetValues(typeof(PriceLevel))), "Select Price Level")
+    <br>
+    <br> 
+    @Html.LabelFor(model => model.Rating)
+    @Html.DropDownListFor(model => model.Rating, new SelectList(Enum.GetValues(typeof(Rating))), "Select Rating")
+    <br>
+    <br> 
+    @Html.LabelFor(model => model.Type)
+    @Html.TextBoxFor(model => model.Type)
+    <br>
+    <br> 
+    @Html.LabelFor(model => model.Vegetarian, "Vegetarian")
+    @Html.RadioButtonFor(model => model.Vegetarian, true)
+    <br>
+    @Html.LabelFor(model => model.Vegetarian, "Non-Vegetarian")
+    @Html.RadioButtonFor(model => model.Vegetarian, false)
+    <br>
+    <br>  
+    @Html.LabelFor(model => model.Cuisine)
+    @Html.DropDownList("CuisineId")
+    <br>
+    <br> 
+    <input type="submit" value="Add new restaurant" class="btn btn-secondary" />
+  }
+</div>
+
+<div class="link">@Html.ActionLink("Show all restaurants", "Index")</div>
+@Html.Partial("Footer")

@@ -25,10 +25,11 @@ else
   <h3>@Html.DisplayNameFor(model => model.Vegetarian): No</h3>
 }
 
-<div class="links3">
+<div class="links4">
   <div class="link">@Html.ActionLink("Back to list", "Index")</div>
   <div class="link">@Html.ActionLink("Edit Restaurant", "Edit", new { id = Model.RestaurantId })</div>
   <div class="link">@Html.ActionLink("Delete Restaurant", "Delete", new { id = Model.RestaurantId })</div>
+  <div class="link">@Html.ActionLink("Write a Review", "Create", "Reviews")</div>
 </div>
 
 
