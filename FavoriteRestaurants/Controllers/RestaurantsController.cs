@@ -81,7 +81,7 @@ namespace FavoriteRestaurants.Controllers
     public ActionResult SearchResults(Restaurant searchRestaurant)
     {
       string searchCriteria = searchRestaurant.Name.ToLower();
-      List<Restaurant> allModels = _db.Restaurants.ToList();
+      List<Restaurant> allModels = _db.Restaurants.Include(restaurants => restaurants.Cuisine).ToList(); 
       List<Restaurant> foundModels = new List <Restaurant>{};
       
       if (searchRestaurant.Description == "Name")
@@ -103,8 +103,8 @@ namespace FavoriteRestaurants.Controllers
       else if (searchRestaurant.Vegetarian == true)
       {
         foundModels = allModels.FindAll(x => x.Vegetarian == true);
-      }   
-      return View(foundModels);  
+      }
+      return View(foundModels);
     }
   }
 }

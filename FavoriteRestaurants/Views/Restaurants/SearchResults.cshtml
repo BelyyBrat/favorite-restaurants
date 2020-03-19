@@ -24,7 +24,7 @@
       <th>Vegetarian</th>
       <th>Cuisine</th>
     </tr>
-  
+ 
   @foreach (Restaurant restaurant in Model)
   {
     <tr>
@@ -39,25 +39,11 @@
       else{
         <td>@Html.ActionLink("no","Details", new { id = restaurant.RestaurantId })</td>
       }
-      @if(restaurant.CuisineId == 1)
-      {
-        <td>@Html.ActionLink($"French","Details", new { id = restaurant.RestaurantId })</td>  
-      }
-      else if (restaurant.CuisineId == 2)
-      {
-        <td>@Html.ActionLink($"Italian","Details", new { id = restaurant.RestaurantId })</td>  
-      }
-      else if (restaurant.CuisineId == 3)
-      {
-        <td>@Html.ActionLink($"Chinese","Details", new { id = restaurant.RestaurantId })</td>  
-      }
-      else if (restaurant.CuisineId == 4)
-      {
-        <td>@Html.ActionLink($"Mexican","Details", new { id = restaurant.RestaurantId })</td>  
-      }           
+      <td>@Html.ActionLink($"{restaurant.Cuisine.Type} ","Details", new { id = restaurant.RestaurantId })</td>          
     </tr>
   }
 </table>
+
 
 <div class="links3">
   <div class="link">
