@@ -6,7 +6,7 @@ namespace FavoriteRestaurants.Models
   {
     public virtual DbSet<Cuisine> Cuisines { get; set; }
     public DbSet<Restaurant> Restaurants { get; set; }
-    public DbSet<Restaurant> Reviews { get; set; }
+    public DbSet<Review> Reviews { get; set; }
     
     public FavoriteRestaurantsContext(DbContextOptions options) : base(options) { }
   }
