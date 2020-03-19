@@ -16,6 +16,7 @@ namespace FavoriteRestaurants.Controllers
     {
       _db = db;
     }
+
     public ActionResult Index()
     {
       List<Review> model = _db.Reviews.Include(reviews => reviews.Restaurant).ToList();
@@ -26,11 +27,11 @@ namespace FavoriteRestaurants.Controllers
       return View(model);
     }
 
-    public ActionResult Create(int restaurantId)
+    public ActionResult Create(int id)
     {
-      Restaurant thisRestaurant = _db.Restaurants.FirstOrDefault(restaurants => restaurants.RestaurantId == restaurantId);
-      ViewBag.RestaurantId = thisRestaurant.RestaurantId;
-      Console.WriteLine(restaurantId);
+      // var thisReview = _db.Reviews.FirstOrDefault(reviews => reviews.RestaurantId == id);
+      ViewBag.RestaurantId = id;
+      Console.WriteLine(id);
       return View();
     }
 
@@ -39,7 +40,7 @@ namespace FavoriteRestaurants.Controllers
     {
       _db.Reviews.Add(review);
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return RedirectToAction("Details", "Restaurants", new { id = review.RestaurantId} );
     }
 
     // To-Do: Add reviews to restaurant details
