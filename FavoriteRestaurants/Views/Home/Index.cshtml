@@ -1,5 +1,6 @@
 @{
   Layout = "_Layout";
+  ViewBag.Title = "Home";
 }
 
 <div class="jumbotron">
@@ -9,7 +10,7 @@
 </div>
 <img src="https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,h_675,q_80,w_1920/v1/clients/knoxville/7_JQ1A3935_8951c754-4841-4304-a50d-e64e51c66205.jpg" class="img-fluid" alt="">
 
-<div class="links3">
+<div class="links4">
   <div class="link">
     <p>@Html.ActionLink("See all Cuisines", "Index", "Cuisines")</p>
   </div>
@@ -17,6 +18,9 @@
     <p>@Html.ActionLink("See all Restaurants", "Index", "Restaurants")</p>
   </div>
   <div class="link">
-    <p>@Html.ActionLink("Search Restaurants", "Search", "Restaurants")</p>
+    <p>@Html.ActionLink("See all Reviews", "Index", "Reviews")</p>
   </div>
+  <div class="link">
+    <p>@Html.ActionLink("Search Restaurants", "Search", "Restaurants")</p>
+  </div>  
 </div>

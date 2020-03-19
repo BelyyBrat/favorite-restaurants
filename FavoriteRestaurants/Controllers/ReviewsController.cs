@@ -18,7 +18,7 @@ namespace FavoriteRestaurants.Controllers
     }
     public ActionResult Index()
     {
-      List<Review> model = _db.Reviews.Include(reviews => reviews.Restaurant).ToList();
+      List<Review> model = _db.Reviews.ToList();
       return View(model);
     }
 

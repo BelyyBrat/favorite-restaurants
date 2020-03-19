@@ -1,5 +1,6 @@
 @{
   Layout = "_Layout";
+  ViewBag.Title = "Add Review";
 }
 
 @using FavoriteRestaurants.Models
@@ -16,33 +17,16 @@
     @Html.TextBoxFor(model => model.ReviewerName)
     <br>
     <br>
-    @Html.LabelFor(model => model.ReviewRating, "Price Level")
-    @Html.DropDownListFor(model => model.ReviewRating, new SelectList(Enum.GetValues(typeof(PriceLevel))), "Select Price Level")
+    @Html.LabelFor(model => model.ReviewRating)
+    @Html.DropDownListFor(model => model.ReviewRating, new SelectList(Enum.GetValues(typeof(ReviewRating))), "Select Rating")
     <br>
-    <br> 
-
+    <br>
     @Html.LabelFor(model => model.Description)
     @Html.TextAreaFor(model => model.Description)
     <br>
     <br>
-    
-    @Html.LabelFor(model => model.Rating)
-    @Html.DropDownListFor(model => model.Rating, new SelectList(Enum.GetValues(typeof(Rating))), "Select Rating")
-    <br>
-    <br> 
-    @Html.LabelFor(model => model.Type)
-    @Html.TextBoxFor(model => model.Type)
-    <br>
-    <br> 
-    @Html.LabelFor(model => model.Vegetarian, "Vegetarian")
-    @Html.RadioButtonFor(model => model.Vegetarian, true)
-    <br>
-    @Html.LabelFor(model => model.Vegetarian, "Non-Vegetarian")
-    @Html.RadioButtonFor(model => model.Vegetarian, false)
-    <br>
-    <br>  
-    @Html.LabelFor(model => model.Cuisine)
-    @Html.DropDownList("CuisineId")
+    @Html.LabelFor(model => model.ReviewDate)
+    @Html.TextBoxFor(model => model.ReviewDate, new { @type = "date"})
     <br>
     <br> 
     <input type="submit" value="Add new review" class="btn btn-secondary" />

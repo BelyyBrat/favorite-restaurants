@@ -1,0 +1,32 @@
+@{
+  Layout = "_Layout";
+  ViewBag.Title = "All Reviews";
+}
+
+@using FavoriteRestaurants.Models;
+@model List<FavoriteRestaurants.Models.Review>;
+
+<div class="jumbotron">
+  <h1>Reviews</h1>
+</div>
+
+<div class="content">
+  @if (@Model.Count == 0)
+  {
+    <h3>No reviews have been added yet!</h3>
+  } 
+
+  <ul>
+    @foreach (Review review in Model)
+    {
+      <li>@review.ReviewerName, @review.ReviewRating, @review.Description, @review.ReviewDate</li>
+    }
+  </ul>
+</div>
+
+<div class="links2">
+  <div class="link">@Html.ActionLink("Add new Review", "Create")</div>
+  <div class="link">@Html.ActionLink("See all restaurants", "Index", "Restaurants")</div>
+</div>
+
+@Html.Partial("Footer")
