@@ -2,8 +2,8 @@
   Layout = "_Layout";
 }
 
-@using FavoriteRestaurants.Models;
-@model FavoriteRestaurants.Models.Restaurant;
+@using FavoriteRestaurants.Models
+@model FavoriteRestaurants.Models.Restaurant
 
 <div class="jumbotron">
   <h2>Search Restaurants</h2>
@@ -18,14 +18,14 @@
     @Html.RadioButtonFor(Model => Model.Description,"Name")
     @Html.Label("By Name")
     <br> 
-    @Html.RadioButtonFor(Model => Model.Description,"PriceLevel") 
     @Html.Label("By Price Level")
+    @Html.DropDownListFor(model => model.PriceLevel, new SelectList(Enum.GetValues(typeof(PriceLevel))), "Select Price Level")
     <br>
-    @Html.RadioButtonFor(Model => Model.Description,"Rating") 
     @Html.Label("By Rating")
+    @Html.DropDownListFor(model => model.Rating, new SelectList(Enum.GetValues(typeof(Rating))), "Select Rating")
     <br>
-    @Html.RadioButtonFor(Model => Model.Description,"Type") 
-    @Html.Label("By Type")
+    @Html.LabelFor(model => model.Type)
+    @Html.DropDownList("RestaurantType")
     <br>
     @Html.CheckBoxFor(Model => Model.Vegetarian, true) 
     @Html.Label("By Vegetarian")

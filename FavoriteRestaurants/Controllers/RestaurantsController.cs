@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using FavoriteRestaurants.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
@@ -74,12 +75,24 @@ namespace FavoriteRestaurants.Controllers
     
     public ActionResult Search()
     {
+      List<Restaurant> model = _db.Restaurants.Include(restaurants => restaurants.Cuisine).OrderBy(x => x.Type).ToList();
+      List<string> modelTypes = new List<string>{};
+      foreach (Restaurant restaurant in model)
+      {
+        modelTypes.Add(restaurant.Type);
+      }
+      List<string> removedDuplicates = modelTypes.Distinct().ToList();
+      ViewBag.RestaurantType = new SelectList(removedDuplicates, "Type");
       return View();
     }
 
     [HttpPost]
     public ActionResult SearchResults(Restaurant searchRestaurant)
-    {
+    { 
+      if (searchRestaurant.Name == null)
+      {
+        searchRestaurant.Name = "";
+      }
       string searchCriteria = searchRestaurant.Name.ToLower();
       List<Restaurant> allModels = _db.Restaurants.Include(restaurants => restaurants.Cuisine).ToList(); 
       List<Restaurant> foundModels = new List <Restaurant>{};
@@ -104,6 +117,8 @@ namespace FavoriteRestaurants.Controllers
       {
         foundModels = allModels.FindAll(x => x.Vegetarian == true);
       }
+
+
       return View(foundModels);
     }
   }
