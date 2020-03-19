@@ -84,7 +84,11 @@ namespace FavoriteRestaurants.Controllers
       List<Restaurant> allModels = _db.Restaurants.ToList();
       List<Restaurant> foundModels = new List <Restaurant>{};
       
-      if (searchRestaurant.Description == "PriceLevel")
+      if (searchRestaurant.Description == "Name")
+      {
+        foundModels = allModels.FindAll(x => x.Name.ToLower().Contains(searchCriteria) == true);
+      }
+      else if (searchRestaurant.Description == "PriceLevel")
       {
         foundModels = allModels.FindAll(x => x.PriceLevel.ToLower() == searchCriteria);
       }

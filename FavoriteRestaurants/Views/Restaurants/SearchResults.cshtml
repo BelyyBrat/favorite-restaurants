@@ -20,6 +20,7 @@
       <th>Name</th>
       <th>PriceLevel</th>
       <th>Rating</th>
+      <th>Type</th>
       <th>Vegetarian</th>
       <th>Cuisine</th>
     </tr>
@@ -30,8 +31,30 @@
       <td>@Html.ActionLink($"{restaurant.Name} ","Details", new { id = restaurant.RestaurantId })</td>
       <td>@Html.ActionLink($"{restaurant.PriceLevel} ","Details", new { id = restaurant.RestaurantId })</td>
       <td>@Html.ActionLink($"{restaurant.Rating} ","Details", new { id = restaurant.RestaurantId })</td>
-      <td>@Html.ActionLink($"{restaurant.Vegetarian.ToString()} ","Details", new { id = restaurant.RestaurantId })</td>
-      <td>@Html.ActionLink($"{restaurant.Cuisine} ","Details", new { id = restaurant.RestaurantId })</td>      
+      <td>@Html.ActionLink($"{restaurant.Type} ","Details", new { id = restaurant.RestaurantId })</td>
+      @if(restaurant.Vegetarian == true)
+      {
+        <td>@Html.ActionLink("yes","Details", new { id = restaurant.RestaurantId })</td>
+      }
+      else{
+        <td>@Html.ActionLink("no","Details", new { id = restaurant.RestaurantId })</td>
+      }
+      @if(restaurant.CuisineId == 1)
+      {
+        <td>@Html.ActionLink($"French","Details", new { id = restaurant.RestaurantId })</td>  
+      }
+      else if (restaurant.CuisineId == 2)
+      {
+        <td>@Html.ActionLink($"Italian","Details", new { id = restaurant.RestaurantId })</td>  
+      }
+      else if (restaurant.CuisineId == 3)
+      {
+        <td>@Html.ActionLink($"Chinese","Details", new { id = restaurant.RestaurantId })</td>  
+      }
+      else if (restaurant.CuisineId == 4)
+      {
+        <td>@Html.ActionLink($"Mexican","Details", new { id = restaurant.RestaurantId })</td>  
+      }           
     </tr>
   }
 </table>
@@ -44,7 +67,7 @@
     <p>@Html.ActionLink("Add new restaurant", "Create")</p>
   </div>
   <div class="link">
-    <p>@Html.ActionLink("List of Re", "Index")</p>
+    <p>@Html.ActionLink("List of restaurants", "Index")</p>
   </div>
 </div>
 

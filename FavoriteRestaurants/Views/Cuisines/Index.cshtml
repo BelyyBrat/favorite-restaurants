@@ -8,6 +8,8 @@
 <h1>Cuisines</h1>
 </div>
 
+<img src="https://www.foodbusinessnews.net/ext/resources/2019/6/InternationalCuisinesLead1200x800.jpg?1560515989" class="img-fluid" alt="">
+
 <div class="content">
   @if (@Model.Count == 0)
   {
@@ -21,6 +23,6 @@
 </div>
 
 
-<p>@Html.ActionLink("Add new Cuisine", "Create")</p>
+<div class="link">@Html.ActionLink("Add new Cuisine", "Create")</div>
 
 @Html.Partial("Footer")

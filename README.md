@@ -38,3 +38,5 @@
 - Separate into two searches: 1 with a textbox, 1 without?
 - Filter: checkboxes? 
 - Visit Further Exploration on the lesson
+- Create separate class for Reviews
+- Search looking for part of Name, not Name completely

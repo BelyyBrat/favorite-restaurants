@@ -21,21 +21,25 @@ li {
 }
 
 .links5 {
+  margin-top: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 .links4 {
+  margin-top: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .links3 {
+  margin-top: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
 
 .links2 {
+  margin-top: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
@@ -53,6 +57,21 @@ li {
 }
 
 .content {
-  font-size: 30px;
+  font-size: 25px;
+  margin-top: 20px;
   margin-bottom: 20px;
+}
+
+table {
+  border: 1px solid grey;
+}
+
+th{
+  border: 1px solid grey;
+  padding: 5px;
+}
+
+td{
+  border: 1px solid grey;
+  padding: 5px;
 }

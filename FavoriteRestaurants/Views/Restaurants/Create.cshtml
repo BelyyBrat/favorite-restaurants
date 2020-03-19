@@ -28,9 +28,6 @@
     @Html.DropDownListFor(model => model.Rating, new SelectList(Enum.GetValues(typeof(Rating))), "Select Rating")
     <br>
     <br> 
-    @* @Html.LabelFor(model => model.PriceLevel)
-    @Html.DropDownListFor(model => model.PriceLevel, 1)
-     *@
     @Html.LabelFor(model => model.Type)
     @Html.TextBoxFor(model => model.Type)
     <br>
