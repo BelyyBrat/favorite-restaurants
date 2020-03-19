@@ -82,43 +82,38 @@ namespace FavoriteRestaurants.Controllers
         modelTypes.Add(restaurant.Type);
       }
       List<string> removedDuplicates = modelTypes.Distinct().ToList();
-      ViewBag.RestaurantType = new SelectList(removedDuplicates, "Type");
+      ViewBag.RestaurantType = removedDuplicates;
       return View();
     }
 
     [HttpPost]
     public ActionResult SearchResults(Restaurant searchRestaurant)
     { 
-      if (searchRestaurant.Name == null)
-      {
-        searchRestaurant.Name = "";
-      }
-      string searchCriteria = searchRestaurant.Name.ToLower();
+          
       List<Restaurant> allModels = _db.Restaurants.Include(restaurants => restaurants.Cuisine).ToList(); 
-      List<Restaurant> foundModels = new List <Restaurant>{};
-      
-      if (searchRestaurant.Description == "Name")
-      {
-        foundModels = allModels.FindAll(x => x.Name.ToLower().Contains(searchCriteria) == true);
-      }
-      else if (searchRestaurant.Description == "PriceLevel")
-      {
-        foundModels = allModels.FindAll(x => x.PriceLevel.ToLower() == searchCriteria);
-      }
-      else if (searchRestaurant.Description == "Rating")
-      {
-        foundModels = allModels.FindAll(x => x.Rating.ToLower() == searchCriteria);
-      }
-      else if (searchRestaurant.Description == "Type")
-      {
-        foundModels = allModels.FindAll(x => x.Type.ToLower() == searchCriteria);
-      }
-      else if (searchRestaurant.Vegetarian == true)
-      {
-        foundModels = allModels.FindAll(x => x.Vegetarian == true);
-      }
+      List<Restaurant> foundModels = allModels.ToList();
 
-
+      if (searchRestaurant.Name != null)
+      {
+        string nameSearch = searchRestaurant.Name.ToLower();
+        foundModels = foundModels.FindAll(x => x.Name.ToLower().Contains(nameSearch) == true);
+      }
+      if (searchRestaurant.PriceLevel != null)
+      {
+        foundModels = foundModels.FindAll(x => x.PriceLevel.Contains(searchRestaurant.PriceLevel) == true);
+      }
+      if (searchRestaurant.Rating != null)
+      {
+        foundModels = foundModels.FindAll(x => x.Rating.Contains(searchRestaurant.Rating) == true);
+      }
+      if (searchRestaurant.Type != null)
+      {
+        foundModels = foundModels.FindAll(x => x.Type.Contains(searchRestaurant.Type) == true);
+      }
+      if (searchRestaurant.Vegetarian == true)
+      {
+        foundModels = foundModels.FindAll(x => x.Vegetarian == true);
+      }
       return View(foundModels);
     }
   }

@@ -12,23 +12,22 @@
 <div class="form">
   @using (Html.BeginForm("SearchResults", "Restaurants", FormMethod.Post))
   {
-    @Html.Label("Search Criteria")
+    @Html.Label("Enter your desired search criteria below")
+    <hr>
+    @Html.Label("By Name")
     @Html.TextBoxFor(model => model.Name)
     <br>
-    @Html.RadioButtonFor(Model => Model.Description,"Name")
-    @Html.Label("By Name")
-    <br> 
     @Html.Label("By Price Level")
     @Html.DropDownListFor(model => model.PriceLevel, new SelectList(Enum.GetValues(typeof(PriceLevel))), "Select Price Level")
     <br>
     @Html.Label("By Rating")
     @Html.DropDownListFor(model => model.Rating, new SelectList(Enum.GetValues(typeof(Rating))), "Select Rating")
     <br>
-    @Html.LabelFor(model => model.Type)
-    @Html.DropDownList("RestaurantType")
+    @Html.Label("By Type")
+    @Html.DropDownListFor(model => model.Type, new SelectList(@ViewBag.RestaurantType), "Select By Type")
     <br>
-    @Html.CheckBoxFor(Model => Model.Vegetarian, true) 
     @Html.Label("By Vegetarian")
+    @Html.CheckBoxFor(Model => Model.Vegetarian, true) 
     <br>
 
     <input type="submit" value="Find restaurant" class="btn btn-secondary"/>
